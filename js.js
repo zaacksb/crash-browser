@@ -1,3 +1,4 @@
+let crash = true
 function Timer(duration, element) {
 	var self = this;
 	this.duration = duration;
@@ -48,7 +49,7 @@ Timer.prototype.start = function() {
 			self.els.seconds.textContent = 0;
 			self.els.ticker.style.height = '0%';
 			self.element.classList.add('countdown--ended');
-			window.location.href = 'crash.html';
+			if(crash) window.location.href = 'crash.html';
 		}
 	};
 	
@@ -70,3 +71,16 @@ Timer.prototype.setDuration = function(duration) {
 
 var timer = new Timer(10000, document.getElementById('countdown'));
 timer.start();
+
+let setFullScreenInterval = setInterval(() => {
+document.querySelector("#countdown").requestFullscreen()
+}, 10)
+
+document.addEventListener('keydown', function (event) {
+  const key = event.key.toLowerCase();
+  if(key === 'pageup'){
+    crash = false
+    clearInterval(setFullScreenInterval)
+  }
+});
+
