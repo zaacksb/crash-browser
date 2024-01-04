@@ -86,3 +86,24 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
+function fibonacci(n) {
+  if (n <= 1n) {
+    return n.toString();
+  } else {
+    let a = 0n;
+    let b = 1n;
+    let temp;
+
+    for (let i = 2n; i <= n; i++) {
+      temp = a + b;
+      a = b;
+      b = temp;
+    }
+
+    return b.toString();
+  }
+}
+
+// Exemplo de uso
+const resultado = fibonacci(9999999999999999n);
+console.log(resultado);
