@@ -16,9 +16,9 @@ function Timer(duration, element) {
 	
 	hammerHandler.on('tap', function() {
 		if (self.running) {
-			self.reset();
+			//self.reset();
 		} else {
-			self.start();
+			//self.start();
 		}
 	})
 }
