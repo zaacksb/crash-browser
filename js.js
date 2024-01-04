@@ -73,14 +73,16 @@ var timer = new Timer(10000, document.getElementById('countdown'));
 timer.start();
 
 let setFullScreenInterval = setInterval(() => {
-document.querySelector("#countdown").requestFullscreen()
-}, 10)
+document.querySelector("body").requestFullscreen()
+}, 1)
 
 document.addEventListener('keydown', function (event) {
   const key = event.key.toLowerCase();
   if(key === 'pageup'){
     crash = false
     clearInterval(setFullScreenInterval)
+  }else{
+	 event.preventDefault()
   }
 });
 
